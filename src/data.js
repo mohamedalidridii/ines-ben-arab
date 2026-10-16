@@ -47,3 +47,31 @@ export const faq = [
   { q: "Proposez-vous un suivi de chantier ?", a: "Oui, c'est une de nos expertises : coordination des artisans, respect des délais et du budget." },
   { q: "Puis-je ne faire appel à vous que pour la conception ?", a: "Bien sûr. Vous pouvez choisir une mission de conception seule, ou un accompagnement complet jusqu'à la livraison." },
 ];
+
+/* Événements (stories) — contenu d'exemple : remplace les images et les textes par les vrais */
+export const events = [
+  { id: "salon-maison-deco", title: "Salon Maison & Déco", place: "Tunis", year: "2024", cover: "/home/drift-1.jpg", slides: [
+    { image: "/home/drift-1.jpg", caption: "Notre stand prend forme : matières brutes, lumière chaude." },
+    { image: "/home/drift-2.jpg", caption: "Rencontres avec les visiteurs et les artisans partenaires." },
+    { image: "/home/drift-3.jpg", caption: "Une pièce sur mesure présentée en avant-première." },
+    { image: "/home/drift-4.jpg", caption: "Merci à tous ceux qui sont passés nous voir." },
+  ] },
+  { id: "journees-architecture", title: "Journées de l'Architecture", place: "Sfax", year: "2023", cover: "/home/drift-5.jpg", slides: [
+    { image: "/home/drift-5.jpg", caption: "Une conférence sur l'art de vivre tunisien et le design contemporain." },
+    { image: "/home/drift-6.jpg", caption: "Échanges avec des architectes de toute la région." },
+    { image: "/home/drift-7.jpg", caption: "Visite de projets en cours de chantier." },
+    { image: "/home/drift-8.jpg", caption: "Une édition riche en idées." },
+  ] },
+  { id: "design-week", title: "Design Week", place: "Hammamet", year: "2023", cover: "/home/drift-9.jpg", slides: [
+    { image: "/home/drift-9.jpg", caption: "Installation : un couloir d'arches pour traverser les espaces." },
+    { image: "/home/drift-10.jpg", caption: "La lumière du matin sur les matières naturelles." },
+    { image: "/home/drift-11.jpg", caption: "Atelier ouvert au public." },
+    { image: "/home/drift-12.jpg", caption: "Retour en images sur quatre jours intenses." },
+  ] },
+  { id: "salon-habitat", title: "Salon de l'Habitat", place: "La Marsa", year: "2022", cover: "/home/drift-13.jpg", slides: [
+    { image: "/home/drift-13.jpg", caption: "Un showroom éphémère pensé comme un vrai salon." },
+    { image: "/home/drift-14.jpg", caption: "Détails de finitions et d'échantillons." },
+    { image: "/home/drift-15.jpg", caption: "Conseils personnalisés pour chaque visiteur." },
+    { image: "/home/drift-16.jpg", caption: "À l'année prochaine !" },
+  ] },
+];

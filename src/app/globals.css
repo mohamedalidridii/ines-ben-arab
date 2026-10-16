@@ -187,3 +187,45 @@ h3 { font-size: clamp(1.4rem, 3vw, 2.6rem); line-height: 1.1; }
   #wb-col-2, #wb-col-3 { transform: translateX(0) translateY(500px); }
 }
 @media (max-width: 767px) { .passage-wrap { display: none; } }
+
+/* Événements : stories */
+.ev { padding-bottom: 6rem; }
+.ev-rings { display: flex; gap: 1.5rem; overflow-x: auto; padding: .5rem 0 2.5rem; scrollbar-width: none; }
+.ev-rings::-webkit-scrollbar { display: none; }
+.ev-ring { flex: 0 0 auto; width: 6.5rem; display: flex; flex-direction: column; align-items: center; gap: .7rem; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; text-align: center; }
+.ev-ring-img { width: 5.6rem; height: 5.6rem; border-radius: 50%; padding: 3px; background: conic-gradient(from 200deg, var(--accent), #f3d27a, var(--accent), #8a6a22, var(--accent)); transition: transform .4s; }
+.ev-ring-img img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg); }
+.ev-ring:hover .ev-ring-img { transform: scale(1.06); }
+.ev-ring .sm { font-size: .68rem; line-height: 1.3; }
+.ev-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.ev-card { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border: 0; padding: 0; background: #1a1a1a; color: #fff; cursor: pointer; text-align: left; }
+.ev-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.22,1,.36,1); }
+.ev-card:hover img { transform: scale(1.06); }
+.ev-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.7), transparent 50%); }
+.ev-card-meta { position: absolute; z-index: 1; left: 1rem; right: 1rem; bottom: 1rem; display: flex; flex-direction: column; gap: .3rem; }
+.ev-card-meta strong { font-weight: 300; text-transform: uppercase; font-size: 1.15rem; line-height: 1.05; }
+.ev-card-meta small { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.story-overlay { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: rgba(0,0,0,.92); }
+.story-backdrop { position: absolute; inset: 0; border: 0; background: none; cursor: zoom-out; }
+.story { position: relative; height: min(92svh, 860px); aspect-ratio: 9 / 16; max-width: 100vw; background: #000; overflow: hidden; border-radius: 14px; color: #fff; animation: storyIn .45s cubic-bezier(.22,1,.36,1); }
+@keyframes storyIn { from { opacity: 0; transform: scale(.94) translateY(20px); } }
+.story-bars { position: absolute; z-index: 4; top: .7rem; left: .7rem; right: .7rem; display: flex; gap: 4px; }
+.story-bar { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,.3); overflow: hidden; }
+.story-bar i { display: block; height: 100%; background: #fff; transform: scaleX(0); transform-origin: left; }
+.story-bar i.done { transform: scaleX(1); }
+.story-bar i.run { animation: storyBar linear forwards; }
+@keyframes storyBar { to { transform: scaleX(1); } }
+.story-head { position: absolute; z-index: 4; top: 1.5rem; left: .9rem; right: .9rem; display: flex; align-items: center; gap: .7rem; }
+.story-head img { width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #0a0a0a; padding: .35rem; object-fit: contain; }
+.story-head div { display: flex; flex-direction: column; line-height: 1.2; flex: 1; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+.story-head strong { font-size: .85rem; font-weight: 500; }
+.story-head small { font-size: .7rem; opacity: .85; }
+.story-head button { background: none; border: 0; color: #fff; font-size: 1.2rem; cursor: pointer; padding: .4rem; }
+.story-hit { position: absolute; inset: 0; z-index: 2; cursor: pointer; touch-action: manipulation; }
+.story-img { width: 100%; height: 100%; object-fit: cover; display: block; animation: storyFade .5s both; pointer-events: none; }
+@keyframes storyFade { from { opacity: 0; } }
+.story::before { content: ""; position: absolute; z-index: 3; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(0,0,0,.45), transparent 22%, transparent 62%, rgba(0,0,0,.75)); }
+.story-cap { position: absolute; z-index: 4; left: 1.2rem; right: 1.2rem; bottom: 1.6rem; font-size: 1.05rem; line-height: 1.4; pointer-events: none; animation: up .6s .15s both; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+@media (max-width: 899px) { .ev-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .story { height: 100svh; width: 100vw; aspect-ratio: auto; border-radius: 0; } }
+.ev-title { font-size: clamp(2rem, 11.5vw, 10rem); overflow-wrap: anywhere; }
