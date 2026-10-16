@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArchScene from "@/components/ArchScene";
@@ -9,7 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Passage() {
   const root = useRef(null);
   const progress = useRef(0);
+  /* pas de section 3D sur mobile : null = pas encore déterminé (rien n'est rendu côté serveur) */
+  const [show, setShow] = useState(null);
+  useEffect(() => { setShow(!window.matchMedia("(max-width: 767px)").matches); }, []);
   useEffect(() => {
+    if (!show) return;
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: root.current, start: "top top", end: "+=3200", pin: true,
@@ -18,8 +22,10 @@ export default function Passage() {
       gsap.to(".passage-text", { opacity: 0, y: -40, ease: "none",
         scrollTrigger: { trigger: root.current, start: "top top", end: "+=900", scrub: true } });
     }, root);
+    ScrollTrigger.refresh();
     return () => ctx.revert();
-  }, []);
+  }, [show]);
+  if (!show) return null;
   return (
     <div className="passage-wrap">
     <section className="passage" ref={root}>
