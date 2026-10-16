@@ -15,7 +15,7 @@ export default function WaabiHero() {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: ".wb-hero", start: "top top", end: () => `+=${window.innerHeight * 1.5}`,
-        pin: true, pinSpacing: false, scrub: 0.6, invalidateOnRefresh: true,
+        pin: true, pinSpacing: false, scrub: 0.6, refreshPriority: 3, invalidateOnRefresh: true,
         onUpdate: (self) => {
           const p = self.progress;
           const ip = gsap.parseEase("power2.inOut")(Math.max(0, Math.min((p - 0.1) / 0.9, 1)));

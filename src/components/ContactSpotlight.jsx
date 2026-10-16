@@ -98,11 +98,11 @@ export default function ContactSpotlight() {
       else if (f < 0.4 && shown) { shown = false; reveal.reverse(); }
     };
     const stPre = ScrollTrigger.create({
-      trigger: root.current, start: "top center", end: "top top", scrub: true,
+      trigger: root.current, start: "top center", end: "top top", scrub: true, refreshPriority: 1,
       onUpdate: (self) => { pre = self.progress; render(); },
     });
     const st = ScrollTrigger.create({
-      trigger: root.current, start: "top top", end: "+=300%", pin: true, scrub: true,
+      trigger: root.current, start: "top top", end: "+=300%", pin: true, scrub: true, refreshPriority: 1,
       onUpdate: (self) => { t = self.progress; render(); },
     });
     return () => { window.removeEventListener("resize", onResize); st.kill(); stPre.kill(); reveal.kill(); };

@@ -14,7 +14,16 @@ export default function SmoothScroll() {
     const tick = (t) => lenis.raf(t * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
-    return () => { gsap.ticker.remove(tick); lenis.destroy(); };
+    /* recalcule les positions ScrollTrigger quand la hauteur de la page change (images, polices, accordéons) */
+    let h = document.body.scrollHeight, timer;
+    const ro = new ResizeObserver(() => {
+      if (Math.abs(document.body.scrollHeight - h) < 2) return;
+      h = document.body.scrollHeight;
+      clearTimeout(timer);
+      timer = setTimeout(() => { ScrollTrigger.refresh(); lenis.resize(); }, 150);
+    });
+    ro.observe(document.body);
+    return () => { clearTimeout(timer); ro.disconnect(); gsap.ticker.remove(tick); lenis.destroy(); };
   }, []);
   return null;
 }

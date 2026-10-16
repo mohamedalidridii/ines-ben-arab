@@ -186,3 +186,4 @@ h3 { font-size: clamp(1.4rem, 3vw, 2.6rem); line-height: 1.1; }
   .wb-thumb { width: 75px; height: 75px; opacity: .25; filter: saturate(0); }
   #wb-col-2, #wb-col-3 { transform: translateX(0) translateY(500px); }
 }
+@media (max-width: 767px) { .passage-wrap { display: none; } }
