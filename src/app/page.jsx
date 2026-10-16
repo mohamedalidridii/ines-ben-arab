@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Copy from "@/components/Copy";
 import WaabiHero from "@/components/WaabiHero";
+import EventBubbles from "@/components/EventBubbles";
 import Passage from "@/components/Passage";
 import Expertises from "@/components/Expertises";
 import Footer from "@/components/Footer";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <div>
       <WaabiHero />
+      <EventBubbles />
 
       <Passage />
       <Expertises />
